@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>枕月仙人的妙妙屋 · MoonSage's Wonder House</title>
+  <link rel="stylesheet" href="./styles/main.css?v=20261111b" />
+</head>
+<body>
+  <!-- Warm Watercolor Wash & Sketchbook Paper Texture -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-orb orb-1"></div>
+    <div class="aurora-orb orb-2"></div>
+    <div class="aurora-orb orb-3"></div>
+    <div class="aurora-grid"></div>
+  </div>
+
+  <!-- Sketchbook Topbar -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="#top" class="brand" id="brand-link">
+        <img src="./assets/art/moonsage-portrait.jpg" alt="MoonSage" class="brand-avatar" />
+        <span class="brand-name" id="brand-name">MoonSage's Atelier</span>
+      </a>
+
+      <div class="topbar-controls">
+        <nav class="nav-links" aria-label="Primary Navigation">
+          <a href="#catalog-section" class="nav-btn" data-i18n="navCatalog">Curio Shelf</a>
+          <a href="#craft-notes-section" class="nav-btn" data-i18n="navCraftNotes">Craft Notes</a>
+          <a
+            href="https://kcn5wnrqs42a.feishu.cn/share/base/form/shrcnd2A59zev2zQ07SwflXJAgg"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="nav-btn nav-btn-accent"
+            id="nav-feedback-link"
+            data-i18n="navFeedback"
+          >
+            📮 Support &amp; Wish
+          </a>
+          <a href="https://github.com/jayson-sheyue" target="_blank" rel="noopener noreferrer" class="nav-btn" data-i18n="navGithub">
+            GitHub ↗
+          </a>
+        </nav>
+
+        <div class="segmented-group" role="group" aria-label="Interface Language">
+          <button type="button" class="seg-btn" data-locale-btn="en" aria-pressed="true">EN</button>
+          <button type="button" class="seg-btn" data-locale-btn="ja" aria-pressed="false">日本語</button>
+          <button type="button" class="seg-btn" data-locale-btn="zh" aria-pressed="false">中文</button>
+        </div>
+
+        <div class="segmented-group" role="group" aria-label="Paper Theme">
+          <button type="button" class="seg-btn" data-theme-btn="light" aria-pressed="true" data-i18n="themeLight">Parchment</button>
+          <button type="button" class="seg-btn" data-theme-btn="dark" aria-pressed="false" data-i18n="themeDark">Candlelight</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="top">
+    <!-- Storybook Frontispiece Hero -->
+    <section class="hero">
+      <div class="hero-story-column">
+        <div class="sage-medallion-wrap">
+          <div class="sage-portrait-frame">
+            <img src="./assets/art/moonsage-portrait.jpg" alt="MoonSage Portrait" class="sage-portrait-img" />
+            <span class="floating-moon-charm" aria-hidden="true">☾</span>
+          </div>
+        </div>
+
+        <div class="hero-badge" data-i18n="heroBadge">☾ MOONSAGE’S ATELIER · 枕月仙人的小站</div>
+        <h1 class="hero-title" data-i18n="heroTitle">MoonSage’s Little Garret</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">Hand-crafted digital curios made under the crescent moon.</p>
+        <p class="hero-desc" data-i18n="heroDesc">
+          No noisy ads, no cloud accounts. Take a ready-made package for macOS, Windows, or Android, open a live web app in your browser, or peek into the open-source notebooks on GitHub.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#catalog-section" class="btn btn-primary" data-i18n="heroPrimaryCta">Stroll the Shelf ↓</a>
+          <a
+            href="https://github.com/jayson-sheyue"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-secondary"
+            data-i18n="heroSecondaryCta"
+          >
+            GitHub Notebooks ↗
+          </a>
+        </div>
+      </div>
+
+      <!-- Atelier Easel Showcase with Sleeping Cat Vignette -->
+      <div class="hero-stage-deck" id="hero-stage-deck">
+        <div class="hero-cat-vignette">
+          <img src="./assets/art/sleeping-cat.jpg" alt="Sleeping Cat" class="hero-cat-avatar" />
+          <span class="hero-cat-text" data-i18n="catWhisper">zzz... click any frame to look closer</span>
+        </div>
+
+        <div class="hero-stage-frame" id="hero-stage-frame">
+          <div id="hero-slides-container">
+            <img src="./assets/showcase/leaflight-slide1.png" alt="Leaflight · 叶光书房" class="hero-slide-img is-active" data-hero-slide="0" />
+          </div>
+
+          <div class="hero-stage-dock" role="group" aria-label="Atelier Easel Switcher">
+            <button type="button" class="hero-nav-arrow" id="hero-prev-btn" aria-label="Previous">‹</button>
+            <button type="button" class="hero-dock-current" id="hero-current-pill">
+              01 / 05 · 🍃 Leaflight · 叶光书房
+            </button>
+            <button type="button" class="hero-nav-arrow" id="hero-next-btn" aria-label="Next">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sketchbook Ribbon Divider -->
+    <div class="marquee-wrap" aria-label="Exhibited Gadgets">
+      <div class="marquee-track" id="marquee-track"></div>
+    </div>
+
+    <!-- Visual-First Curio Cabinet Section -->
+    <section id="catalog-section" aria-label="Curio Cabinet">
+      <div class="toolbar">
+        <div class="toolbar-filters">
+          <div class="segmented-group" role="group" aria-label="Filter by Platform">
+            <button type="button" class="seg-btn" data-platform-filter="all" aria-pressed="true" data-i18n="filterPlatformAll">All Platforms</button>
+            <button type="button" class="seg-btn" data-platform-filter="macos" aria-pressed="false" data-i18n="filterPlatformMac">macOS</button>
+            <button type="button" class="seg-btn" data-platform-filter="windows" aria-pressed="false" data-i18n="filterPlatformWin">Windows</button>
+            <button type="button" class="seg-btn" data-platform-filter="android" aria-pressed="false" data-i18n="filterPlatformAndroid">Android</button>
+            <button type="button" class="seg-btn" data-platform-filter="web" aria-pressed="false" data-i18n="filterPlatformWeb">Browser Web</button>
+          </div>
+        </div>
+
+        <div class="toolbar-filters">
+          <span class="os-pill" id="detected-os-pill">Desk: macOS</span>
+          <div class="search-box">
+            <input
+              type="search"
+              id="catalog-search"
+              class="search-input"
+              placeholder="Find a curio... ( / )"
+              aria-label="Find a curio"
+            />
+            <button type="button" id="search-clear-btn" class="search-clear" hidden data-i18n="clearSearch">
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="catalog-container" id="catalog-grid"></div>
+
+      <div class="empty-state" id="empty-state" hidden>
+        <h3 data-i18n="emptyStateTitle">This corner of the shelf is quiet</h3>
+        <p data-i18n="emptyStateDesc">Clear the filter above to see all curios in the garret.</p>
+        <button type="button" class="btn btn-secondary" id="empty-reset-btn" data-i18n="emptyResetBtn">
+          Show All Curios
+        </button>
+      </div>
+    </section>
+
+    <!-- Visitor-Facing Craft Notes Section -->
+    <section class="arch-section" id="craft-notes-section">
+      <div class="hero-badge" data-i18n="craftSectionBadge">☾ NOTES FROM THE GARRET</div>
+      <h2 class="card-title" style="font-size: 26px;" data-i18n="craftSectionTitle">
+        Three quiet promises behind every little curio.
+      </h2>
+      <div class="arch-steps">
+        <div class="arch-step-card">
+          <h3 data-i18n="craftStep1Title">I · Ready to Take, Open to Read</h3>
+          <p data-i18n="craftStep1Desc">Direct .dmg, .zip, and .apk packages plus instant GitHub Pages web editions for guests, alongside full source code on GitHub.</p>
+        </div>
+        <div class="arch-step-card">
+          <h3 data-i18n="craftStep2Title">II · Kept in Your Own Drawer</h3>
+          <p data-i18n="craftStep2Desc">100% local-first. No cloud sign-ups, no background telemetry — your books, lookups, radio episodes, and keys stay on your own machine.</p>
+        </div>
+        <div class="arch-step-card">
+          <h3 data-i18n="craftStep3Title">III · Unhurried &amp; Quiet</h3>
+          <p data-i18n="craftStep3Desc">Crafted like a warm paper notebook: no pop-ups, no streak anxiety, just calm language &amp; reading companions that wait until called.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sleeping Cat Fireplace Footer -->
+    <footer class="footer">
+      <div class="footer-cat-corner">
+        <img src="./assets/art/sleeping-cat.jpg" alt="Sleeping Ginger Cat" class="footer-cat-img" />
+        <div>
+          <div class="card-title" style="font-size: 18px; margin-bottom: 4px;" data-i18n="footerTitle">
+            Napping by the fireplace...
+          </div>
+          <div class="card-tagline" data-i18n="footerCraft">
+            MoonSage's Atelier · 枕月仙人的小站 · Local-first open-source curios.
+          </div>
+        </div>
+      </div>
+      <div class="action-cluster">
+        <a
+          href="https://kcn5wnrqs42a.feishu.cn/share/base/form/shrcnd2A59zev2zQ07SwflXJAgg"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="card-btn-ghost"
+          id="footer-feedback-link"
+          data-i18n="navFeedback"
+        >
+          📮 Support &amp; Wish
+        </a>
+        <a href="https://github.com/jayson-sheyue" target="_blank" rel="noopener noreferrer" class="card-btn-ghost">
+          GitHub @jayson-sheyue ↗
+        </a>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Curio Sketchbook Detail Modal -->
+  <div class="drawer-backdrop" id="detail-drawer" hidden role="dialog" aria-modal="true" aria-labelledby="drawer-title">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div class="drawer-header-info">
+          <div style="display: flex; gap: 8px; margin-bottom: 6px; flex-wrap: wrap;" id="drawer-badges"></div>
+          <h2 class="card-title" id="drawer-title">Curio Title</h2>
+          <p class="card-tagline" id="drawer-tagline"></p>
+        </div>
+        <div class="drawer-header-actions">
+          <div class="action-cluster" id="drawer-quick-actions"></div>
+          <button type="button" class="card-btn-ghost" id="drawer-close-btn" data-i18n="drawerClose">ESC</button>
+        </div>
+      </div>
+
+      <div class="drawer-tabs" role="tablist">
+        <button type="button" class="drawer-tab" role="tab" data-drawer-tab="overview" aria-selected="true" data-i18n="drawerTabOverview">
+          📖 Visual Usage Guide
+        </button>
+        <button type="button" class="drawer-tab" role="tab" data-drawer-tab="releases" aria-selected="false" data-i18n="drawerTabReleases">
+          📦 Packages &amp; GitHub
+        </button>
+      </div>
+
+      <div class="drawer-body" id="drawer-body"></div>
+    </div>
+  </div>
+
+  <!-- Full-Screen Plate Lightbox -->
+  <div class="drawer-backdrop" id="media-lightbox" hidden role="dialog" aria-modal="true" aria-label="Plate Lightbox">
+    <div class="lightbox-modal">
+      <div class="lightbox-stage" id="lightbox-stage">
+        <img id="lightbox-img" src="" alt="Full-size plate preview" />
+      </div>
+      <div class="lightbox-bar">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <button type="button" class="card-btn-ghost" id="lightbox-prev-btn">‹</button>
+          <span id="lightbox-caption" style="font-family: var(--font-serif); font-size: 14px; font-weight: 700;"></span>
+          <button type="button" class="card-btn-ghost" id="lightbox-next-btn">›</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button type="button" class="card-btn-ghost" id="lightbox-zoom-btn" data-i18n="lightboxActual">1:1 Ink Detail</button>
+          <button type="button" class="btn btn-primary" id="lightbox-close-btn" data-i18n="lightboxClose">Tuck Away (Esc)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./scripts/app.js?v=20261111b"></script>
+</body>
+</html>

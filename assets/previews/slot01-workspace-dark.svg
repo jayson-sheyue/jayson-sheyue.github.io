@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#151918"/>
+      <stop offset="100%" stop-color="#0d1110"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg2)"/>
+  <rect x="110" y="70" width="1380" height="760" rx="22" fill="#1b211f" stroke="#2f3935" stroke-width="2"/>
+  <rect x="110" y="70" width="1380" height="52" rx="22" fill="#232a27"/>
+  <circle cx="146" cy="96" r="8" fill="#e06c60"/>
+  <circle cx="172" cy="96" r="8" fill="#e5b55f"/>
+  <circle cx="198" cy="96" r="8" fill="#68b36b"/>
+  <text x="800" y="102" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="600" fill="#9aa5a0">
+    Slide 02 · Night Theme &amp; Local BYOK Architecture View
+  </text>
+  <rect x="156" y="158" width="620" height="628" rx="14" fill="#141817" stroke="#2c3531"/>
+  <rect x="192" y="196" width="168" height="28" rx="14" fill="#1e382d"/>
+  <text x="276" y="215" text-anchor="middle" font-family="monospace" font-size="13" font-weight="600" fill="#7ad1ab">NIGHT CRAFT MODE</text>
+  <text x="192" y="272" font-family="Georgia, serif" font-size="30" font-weight="600" fill="#eef2f0">
+    Low-Glare Dark Surface
+  </text>
+  <text x="192" y="318" font-family="-apple-system, sans-serif" font-size="17" fill="#a8b3ae">
+    Showcase your app's dark mode, theme picker, or settings sheet
+  </text>
+  <text x="192" y="346" font-family="-apple-system, sans-serif" font-size="17" fill="#a8b3ae">
+    as a second slide right inside the same product card.
+  </text>
+  <rect x="192" y="392" width="548" height="340" rx="12" fill="#1b211f" stroke="#2f3935"/>
+  <text x="224" y="438" font-family="monospace" font-size="15" fill="#7ad1ab">// Local-First Credentials &amp; Cache</text>
+  <text x="224" y="476" font-family="monospace" font-size="14" fill="#d3dbd7">• API keys stored in OS local storage</text>
+  <text x="224" y="510" font-family="monospace" font-size="14" fill="#d3dbd7">• Zero middleman telemetry server</text>
+  <text x="224" y="544" font-family="monospace" font-size="14" fill="#d3dbd7">• Direct OS binary installer links (.dmg / .exe)</text>
+
+  <rect x="812" y="158" width="632" height="628" rx="14" fill="#141817" stroke="#2c3531"/>
+  <text x="848" y="214" font-family="-apple-system, sans-serif" font-size="20" font-weight="600" fill="#eef2f0">
+    Multi-Format Release Matrix
+  </text>
+  <rect x="848" y="246" width="560" height="140" rx="12" fill="#1b211f" stroke="#365949"/>
+  <text x="880" y="290" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#7ad1ab">
+    ↓ macOS Universal / Apple Silicon (.dmg)
+  </text>
+  <text x="880" y="324" font-family="-apple-system, sans-serif" font-size="15" fill="#a8b3ae">
+    Direct binary stream from GitHub Releases — no repo browsing needed.
+  </text>
+  <rect x="848" y="412" width="560" height="140" rx="12" fill="#1b211f" stroke="#2f3935"/>
+  <text x="880" y="456" font-family="-apple-system, sans-serif" font-size="18" font-weight="600" fill="#8ec9f2">
+    ↓ Windows Setup Installer (.exe)
+  </text>
+  <text x="880" y="490" font-family="-apple-system, sans-serif" font-size="15" fill="#a8b3ae">
+    Auto-highlighted when a visitor opens your site from Windows.
+  </text>
+</svg>

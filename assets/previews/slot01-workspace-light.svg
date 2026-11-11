@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+  <defs>
+    <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f2efe7"/>
+      <stop offset="100%" stop-color="#e5e0d3"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#181a18" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg1)"/>
+  <g filter="url(#shadow)">
+    <rect x="110" y="70" width="1380" height="760" rx="22" fill="#fbfaf6" stroke="#d8d2c5" stroke-width="2"/>
+    <rect x="110" y="70" width="1380" height="52" rx="22" fill="#f0ece1"/>
+    <circle cx="146" cy="96" r="8" fill="#e06c60"/>
+    <circle cx="172" cy="96" r="8" fill="#e5b55f"/>
+    <circle cx="198" cy="96" r="8" fill="#68b36b"/>
+    <text x="800" y="102" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" font-weight="600" fill="#5a5f5a">
+      Slide 01 · Dual-Pane Workspace Surface (16:9 High-Res Preview)
+    </text>
+    <!-- Left Reading / Primary Pane -->
+    <rect x="150" y="154" width="760" height="636" rx="14" fill="#ffffff" stroke="#e4dfd4" stroke-width="1.5"/>
+    <rect x="190" y="196" width="140" height="26" rx="13" fill="#e7f1ec"/>
+    <text x="260" y="214" text-anchor="middle" font-family="monospace" font-size="13" font-weight="600" fill="#1f4d3a">PRIMARY CANVAS</text>
+    <text x="190" y="268" font-family="Georgia, serif" font-size="32" font-weight="600" fill="#181a18">
+      Modular Studio Visual Stage
+    </text>
+    <text x="190" y="316" font-family="-apple-system, sans-serif" font-size="18" fill="#4a4f4a">
+      Drop any 16:9 screenshot, GIF, or MP4 demo into catalog/modules.js.
+    </text>
+    <text x="190" y="348" font-family="-apple-system, sans-serif" font-size="18" fill="#4a4f4a">
+      Click the image or the Zoom button to inspect in full-screen Lightbox mode.
+    </text>
+    <rect x="190" y="390" width="680" height="160" rx="12" fill="#f7f5ef" stroke="#e2ddd2"/>
+    <text x="220" y="434" font-family="monospace" font-size="16" fill="#1f4d3a">mediaGallery: [</text>
+    <text x="244" y="466" font-family="monospace" font-size="15" fill="#4a4f4a">{ type: "image", src: "./assets/shot-01.png", ... },</text>
+    <text x="244" y="496" font-family="monospace" font-size="15" fill="#4a4f4a">{ type: "image", src: "./assets/shot-02.png", ... }</text>
+    <text x="220" y="526" font-family="monospace" font-size="16" fill="#1f4d3a">]</text>
+    <!-- Right Companion Pane -->
+    <rect x="940" y="154" width="510" height="636" rx="14" fill="#f6f4ef" stroke="#e4dfd4" stroke-width="1.5"/>
+    <text x="976" y="210" font-family="-apple-system, sans-serif" font-size="20" font-weight="600" fill="#181a18">
+      Contextual Inspector Panel
+    </text>
+    <rect x="976" y="236" width="438" height="148" rx="12" fill="#ffffff" stroke="#e2ddd2"/>
+    <text x="1002" y="274" font-family="-apple-system, sans-serif" font-size="16" font-weight="600" fill="#1f4d3a">
+      ✓ Multi-Slide Carousel Controls
+    </text>
+    <text x="1002" y="306" font-family="-apple-system, sans-serif" font-size="15" fill="#4a4f4a">
+      Switch between screenshots directly on the card
+    </text>
+    <text x="1002" y="334" font-family="-apple-system, sans-serif" font-size="15" fill="#4a4f4a">
+      or inside the 3-tab detail drawer.
+    </text>
+    <rect x="976" y="408" width="438" height="148" rx="12" fill="#ffffff" stroke="#e2ddd2"/>
+    <text x="1002" y="446" font-family="-apple-system, sans-serif" font-size="16" font-weight="600" fill="#1b4b6b">
+      ✓ Full-Screen Lightbox &amp; Keyboard Nav
+    </text>
+    <text x="1002" y="478" font-family="-apple-system, sans-serif" font-size="15" fill="#4a4f4a">
+      Use Left/Right arrow keys to cycle slides and
+    </text>
+    <text x="1002" y="506" font-family="-apple-system, sans-serif" font-size="15" fill="#4a4f4a">
+      toggle 1:1 original resolution zoom.
+    </text>
+  </g>
+</svg>
