@@ -60,6 +60,8 @@
 
 html {
   scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 body {
@@ -67,8 +69,15 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-sans);
+  max-width: 100%;
   overflow-x: hidden;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
+}
+
+.bilingual-seg {
+  display: inline-block;
+  max-width: 100%;
 }
 
 a {
@@ -281,6 +290,8 @@ select {
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .sage-medallion-wrap {
@@ -436,6 +447,8 @@ select {
 /* Right Hero Atelier Easel Stage */
 .hero-stage-deck {
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   position: relative;
 }
 
@@ -1725,21 +1738,649 @@ select {
 
 @media (max-width: 920px) {
   .hero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
   }
   .module-card,
   .module-card[data-span="featured"],
   .module-card[data-span="compact"] {
     grid-column: span 12;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    min-width: 0;
+  }
+  .module-card[data-span="compact"] .card-visual-stage {
+    height: auto;
+    border-right: none;
+    border-bottom: 1.5px solid var(--border-strong);
   }
   .arch-steps,
   .form-grid,
   .drawer-quickstart-grid,
   .usage-guide-row {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
   .form-field.full-width {
     grid-column: span 1;
+  }
+}
+
+@media (max-width: 720px) {
+  /* 1. Compact 2-Row Rectangular Sketchbook Header (No Oval Distortion) */
+  .topbar {
+    position: relative;
+    top: 0;
+    margin: 10px auto 0;
+    padding: 0 14px;
+  }
+
+  .topbar-inner {
+    border-radius: 18px;
+    padding: 10px 12px;
+    gap: 8px;
+  }
+
+  .topbar-controls,
+  .nav-links {
+    display: contents;
+  }
+
+  .nav-links .nav-btn:not(.nav-btn-accent) {
+    display: none;
+  }
+
+  .brand {
+    order: 1;
+    flex: 1 1 calc(100% - 138px);
+    min-width: 0;
+    gap: 7px;
+  }
+
+  .brand-avatar {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+  }
+
+  .brand-name {
+    font-size: 13.5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .nav-links .nav-btn-accent {
+    order: 2;
+    flex: 0 0 auto;
+    padding: 4px 9px;
+    font-size: 11px;
+    white-space: nowrap;
+  }
+
+  .topbar-inner .segmented-group {
+    order: 3;
+    padding: 2px;
+  }
+
+  .topbar-inner .seg-btn {
+    font-size: 11.5px;
+    padding: 4px 8px;
+    white-space: nowrap;
+  }
+
+  /* 2. Container & Hero Frontispiece */
+  .container {
+    padding: 0 14px 64px;
+  }
+
+  .hero {
+    padding: 18px 0 14px;
+    gap: 20px;
+  }
+
+  .sage-medallion-wrap {
+    margin-bottom: 12px;
+  }
+
+  .sage-portrait-frame {
+    width: 86px;
+    height: 86px;
+    padding: 4px;
+  }
+
+  .floating-moon-charm {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    top: -6px;
+    right: -4px;
+  }
+
+  .hero-badge {
+    max-width: 100%;
+    flex-wrap: wrap;
+    font-size: 10px;
+    letter-spacing: 0.025em;
+    line-height: 1.35;
+    padding: 4px 10px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+  }
+
+  .hero-title {
+    font-size: clamp(23px, 6.2vw, 29px);
+    line-height: 1.22;
+    width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  .hero-title .bilingual-seg {
+    display: block;
+  }
+
+  .hero-title .bilingual-seg + .bilingual-sep + .bilingual-seg {
+    margin-top: 4px;
+    font-size: 0.76em;
+    color: var(--text-secondary);
+    font-weight: 650;
+  }
+
+  .hero-title .bilingual-sep {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .hero-subtitle {
+    font-size: 16.5px;
+    line-height: 1.45;
+    margin-top: 10px;
+  }
+
+  .hero-desc {
+    margin: 10px 0 16px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    width: 100%;
+    gap: 8px;
+  }
+
+  .hero-actions .btn {
+    flex: 1 1 auto;
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
+  /* 3. Hero Easel & Sleeping Cat Vignette */
+  .hero-cat-vignette {
+    position: static;
+    margin-bottom: 10px;
+    width: fit-content;
+    max-width: 100%;
+    padding: 4px 12px 4px 5px;
+    gap: 8px;
+  }
+
+  .hero-cat-avatar {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+  }
+
+  .hero-cat-text {
+    font-size: 11.5px;
+    line-height: 1.3;
+  }
+
+  .hero-stage-frame {
+    border-radius: 18px;
+  }
+
+  .hero-stage-dock {
+    bottom: 8px;
+    padding: 3px 5px;
+    gap: 5px;
+    max-width: calc(100% - 16px);
+  }
+
+  .hero-nav-arrow {
+    width: 26px;
+    height: 26px;
+    font-size: 15px;
+  }
+
+  .hero-dock-current {
+    font-size: 11.5px;
+    padding: 4px 10px;
+  }
+
+  .marquee-wrap {
+    margin: 18px 0 22px;
+    padding: 8px 0;
+  }
+
+  .marquee-track {
+    gap: 28px;
+  }
+
+  /* 4. Filter Toolbar (Horizontal Swipe Pills, Zero Page Overflow) */
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 2px 0 16px;
+  }
+
+  .toolbar-filters {
+    width: 100%;
+    min-width: 0;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .toolbar-filters > .segmented-group {
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding: 3px;
+  }
+
+  .toolbar-filters > .segmented-group::-webkit-scrollbar {
+    display: none;
+  }
+
+  .toolbar-filters > .segmented-group .seg-btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 12px;
+    padding: 5px 11px;
+  }
+
+  .os-pill {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 11.5px;
+    padding: 5px 10px;
+  }
+
+  .search-box {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .search-input {
+    font-size: 16px;
+    padding: 6px 46px 6px 12px;
+  }
+
+  /* 5. Section Headers & Module Cards */
+  .catalog-block {
+    margin-bottom: 32px;
+  }
+
+  .section-head-bar {
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .section-head-bar > .btn,
+  .section-head-bar > .action-cluster {
+    width: 100%;
+  }
+
+  .section-head-bar > .action-cluster .card-btn-ghost {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .bento-grid {
+    gap: 18px;
+  }
+
+  .module-card {
+    border-radius: 20px;
+  }
+
+  .module-card:hover {
+    transform: none;
+  }
+
+  .card-visual-stage {
+    border-radius: 18px 18px 0 0;
+  }
+
+  .stage-top-chrome {
+    top: 8px;
+    left: 10px;
+    right: 10px;
+    gap: 8px;
+  }
+
+  .story-bars {
+    max-width: 120px;
+    gap: 4px;
+  }
+
+  .stage-zoom-pill {
+    padding: 2px 8px;
+    font-size: 11px;
+  }
+
+  .stage-bottom-pills {
+    bottom: 8px;
+    left: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .slide-caption-pill {
+    font-size: 11px;
+    padding: 3px 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 0 1 auto;
+    min-width: 0;
+    max-width: calc(100% - 86px);
+  }
+
+  .slide-dots {
+    flex-shrink: 0;
+    padding: 2px 5px;
+    gap: 2px;
+  }
+
+  .slide-dot-btn {
+    width: 21px;
+    height: 19px;
+    font-size: 10px;
+    padding: 0;
+  }
+
+  .card-footer-bar {
+    padding: 14px 15px 16px;
+    gap: 12px;
+  }
+
+  .card-identity {
+    align-items: flex-start;
+    gap: 11px;
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
+  .card-identity > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .card-app-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 18px;
+    margin-top: 2px;
+  }
+
+  .card-title {
+    font-size: 18px;
+    line-height: 1.25;
+  }
+
+  .card-tagline {
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 4px;
+  }
+
+  .action-cluster {
+    width: 100%;
+    gap: 7px;
+  }
+
+  .split-main-btn {
+    padding: 7px 13px;
+    font-size: 12.5px;
+  }
+
+  .split-toggle-btn {
+    padding: 7px 9px;
+  }
+
+  .card-btn-ghost {
+    padding: 7px 11px;
+    font-size: 12px;
+  }
+
+  .download-menu {
+    min-width: min(260px, calc(100vw - 52px));
+    max-width: calc(100vw - 36px);
+  }
+
+  .download-menu-item {
+    font-size: 12.5px;
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  /* 6. Category Drawers, Coming-Soon Strip, Craft Notes & Footer */
+  .category-drawer {
+    border-radius: 20px;
+  }
+
+  .category-drawer-header {
+    padding: 15px 16px;
+    gap: 12px;
+  }
+
+  .category-drawer-info {
+    flex: 1 1 100%;
+    min-width: 0;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .category-drawer-info > div {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .category-drawer-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    font-size: 19px;
+  }
+
+  .category-drawer-title {
+    font-size: 17.5px;
+  }
+
+  .category-drawer-right {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .category-tool-pill {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+
+  .category-toggle-btn {
+    padding: 6px 13px;
+    font-size: 12px;
+  }
+
+  .category-drawer-body {
+    padding: 14px;
+    border-radius: 0 0 18px 18px;
+  }
+
+  .coming-soon-strip {
+    padding: 18px 16px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+
+  .coming-soon-strip .btn {
+    width: 100%;
+  }
+
+  .arch-section {
+    margin-top: 36px;
+    padding: 20px 16px;
+    border-radius: 20px;
+  }
+
+  .arch-section > .card-title {
+    font-size: clamp(20px, 5.5vw, 25px) !important;
+    line-height: 1.3;
+  }
+
+  .arch-steps {
+    margin-top: 16px;
+    gap: 12px;
+  }
+
+  .arch-step-card {
+    padding: 14px 15px;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding: 22px 16px;
+    border-radius: 22px;
+    gap: 16px;
+  }
+
+  .footer-cat-corner {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .footer-cat-img {
+    width: 62px;
+    height: 62px;
+    flex-shrink: 0;
+  }
+
+  .footer > .action-cluster {
+    width: 100%;
+  }
+
+  .footer > .action-cluster .card-btn-ghost {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  /* 7. Detail Modal Drawer & Full-Screen Lightbox */
+  .drawer-backdrop {
+    padding: 8px;
+    align-items: flex-end;
+  }
+
+  .drawer-panel {
+    width: 100%;
+    max-height: 92vh;
+    max-height: 92dvh;
+    border-radius: 22px;
+  }
+
+  .drawer-header {
+    padding: 14px 16px;
+    gap: 10px;
+  }
+
+  .drawer-header-info {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
+
+  .drawer-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .drawer-header-actions > .action-cluster {
+    width: auto;
+    flex: 1 1 auto;
+  }
+
+  .drawer-tabs {
+    padding: 0 12px;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .drawer-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .drawer-tab {
+    padding: 10px 12px;
+    font-size: 13px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .drawer-body {
+    padding: 14px 16px 22px;
+    gap: 16px;
+  }
+
+  .usage-guide-row {
+    padding: 12px;
+    gap: 12px;
+    border-radius: 16px;
+  }
+
+  .usage-guide-copy {
+    min-width: 0;
+    padding: 2px;
+  }
+
+  .usage-step-title {
+    font-size: 16.5px;
+  }
+
+  .usage-bullet-list {
+    font-size: 13px;
+    gap: 8px;
+  }
+
+  .release-package-grid,
+  .setup-step-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .lightbox-modal {
+    width: 100%;
+    border-radius: 18px;
+  }
+
+  .lightbox-stage {
+    height: min(62vh, 520px);
+  }
+
+  .lightbox-bar {
+    padding: 10px 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: space-between;
   }
 }

@@ -1112,8 +1112,8 @@ export const INITIAL_MODULES = [
         {
           label: 'macOS Universal Stable (.dmg)',
           shortLabel: 'Stable v1.0.0 .dmg',
-          arch: 'Universal (arm64 + Intel) · v1.0.0',
-          url: 'https://github.com/jayson-sheyue/mac-slim/releases/download/v1.0.0/MacSlim-1.0.0-Universal.dmg',
+          arch: 'Universal (arm64 + Intel) · v1.1.1-beta.5',
+          url: 'https://github.com/jayson-sheyue/mac-slim/releases/download/v1.1.1-beta.5/MacSlim-1.1.1-beta.5-Universal.dmg',
         },
       ],
     },

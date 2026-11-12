@@ -1,14 +1,17 @@
-import { SUPPORTED_LOCALES, UI_STRINGS } from '../catalog/i18n.js?v=20261112a';
-import { STUDIO_PROFILE, CATALOG_CATEGORIES, INITIAL_MODULES } from '../catalog/modules.js?v=20261112a';
+import { SUPPORTED_LOCALES, UI_STRINGS } from '../catalog/i18n.js?v=20261112b';
+import { STUDIO_PROFILE, CATALOG_CATEGORIES, INITIAL_MODULES } from '../catalog/modules.js?v=20261112b';
 
 const STORAGE_KEYS = {
-  locale: 'moonsage_atelier_locale',
+  locale: 'moonsage_atelier_locale_v2',
   theme: 'moonsage_atelier_theme_v3',
 };
 
 function detectVisitorOs() {
   const ua = (navigator.userAgent || navigator.platform || '').toLowerCase();
   if (ua.includes('android')) return 'android';
+  if (/iphone|ipad|ipod/.test(ua) || (ua.includes('mac') && navigator.maxTouchPoints > 1)) {
+    return 'ios';
+  }
   if (ua.includes('win')) return 'windows';
   return 'macos';
 }
@@ -79,6 +82,15 @@ function escapeHtml(str) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+function renderBilingualHtml(rawText) {
+  const str = String(rawText ?? '');
+  if (!str.includes(' · ')) return escapeHtml(str);
+  return str
+    .split(' · ')
+    .map((part) => `<span class="bilingual-seg">${escapeHtml(part)}</span>`)
+    .join('<span class="bilingual-sep"> · </span>');
 }
 
 function getAllInstallers(mod) {
@@ -228,9 +240,21 @@ function applyThemeAndLocaleChrome() {
     brandNameEl.textContent = STUDIO_PROFILE.name[state.locale] || STUDIO_PROFILE.name.en;
   }
 
+  const bilingualKeys = new Set([
+    'heroTitle',
+    'heroBadge',
+    'heroSubtitle',
+    'craftSectionBadge',
+  ]);
+
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.getAttribute('data-i18n');
-    el.textContent = t(key);
+    const val = t(key);
+    if (bilingualKeys.has(key) && val.includes(' · ')) {
+      el.innerHTML = renderBilingualHtml(val);
+    } else {
+      el.textContent = val;
+    }
   });
 
   const searchInput = document.getElementById('catalog-search');
@@ -241,7 +265,9 @@ function applyThemeAndLocaleChrome() {
       ? 'Windows'
       : state.detectedOs === 'android'
         ? 'Android'
-        : 'macOS';
+        : state.detectedOs === 'ios'
+          ? 'iOS'
+          : 'macOS';
   const osPill = document.getElementById('detected-os-pill');
   if (osPill) osPill.textContent = `${t('DetectedOsPrefix')} ${osLabel}`;
 
@@ -437,18 +463,23 @@ function renderPrimaryAction(mod, instanceKey = mod.id) {
 function renderModuleCard(mod, instancePrefix = 'card', showPinnedBadge = false) {
   const loc = getModuleLocaleData(mod);
   const instanceKey = `${instancePrefix}-${mod.id}`;
+  const isIosWithWeb = state.detectedOs === 'ios' && mod.kind === 'desktop-app' && Boolean(mod.webPreviewUrl);
   const webBtnHtml =
     mod.kind === 'desktop-app' && mod.webPreviewUrl
       ? `<a
           href="${escapeHtml(mod.webPreviewUrl)}"
           target="_blank"
           rel="noopener noreferrer"
-          class="card-btn-ghost"
+          class="${isIosWithWeb ? 'split-main-btn single-radius' : 'card-btn-ghost'}"
         >
           <span>✦</span>
           <span>${escapeHtml(t('cardWebLaunch'))}</span>
         </a>`
       : '';
+  const primaryActionHtml = renderPrimaryAction(mod, instanceKey);
+  const orderedLeadActionsHtml = isIosWithWeb
+    ? `${webBtnHtml}${primaryActionHtml}`
+    : `${primaryActionHtml}${webBtnHtml}`;
 
   const stampLabel = `${mod.stamp || 'Curio'} · ${mod.version || 'v1.0'}`;
   const pinnedLabelText =
@@ -481,8 +512,7 @@ function renderModuleCard(mod, instancePrefix = 'card', showPinnedBadge = false)
         </div>
 
         <div class="action-cluster">
-          ${renderPrimaryAction(mod, instanceKey)}
-          ${webBtnHtml}
+          ${orderedLeadActionsHtml}
           <button type="button" class="card-btn-ghost" data-open-drawer="${escapeHtml(mod.id)}">
             <span>${escapeHtml(t('cardInspect'))}</span>
           </button>
@@ -538,8 +568,8 @@ function renderCatalog() {
     ? `
       <div class="catalog-block" id="pinned-showcase-block">
         <div class="section-head-bar">
-          <div>
-            <div class="hero-badge">${escapeHtml(t('pinnedSectionBadge'))}</div>
+          <div style="min-width: 0; max-width: 100%;">
+            <div class="hero-badge">${renderBilingualHtml(t('pinnedSectionBadge'))}</div>
             <h2 class="section-head-title">${escapeHtml(t('pinnedSectionTitle'))}</h2>
             <p class="section-head-desc">${escapeHtml(t('pinnedSectionDesc'))}</p>
           </div>
@@ -634,7 +664,7 @@ function renderCatalog() {
   const wishNewToolUrl = buildFeedbackUrl(null, '功能许愿与建议（Feature）');
   const comingSoonStripHtml = `
     <div class="coming-soon-strip" id="coming-soon-strip">
-      <div style="flex: 1 1 320px;">
+      <div style="flex: 1 1 240px; min-width: 0;">
         <div class="hero-badge" style="margin-bottom: 8px;">${escapeHtml(t('comingSoonBadge'))}</div>
         <h3 class="card-title" style="font-size: 19px; margin-bottom: 6px;">${escapeHtml(t('comingSoonTitle'))}</h3>
         <p class="card-tagline" style="margin: 0;">${escapeHtml(t('comingSoonDesc'))}</p>
@@ -656,8 +686,8 @@ function renderCatalog() {
     ? `
       <div class="catalog-block" id="category-drawers-block">
         <div class="section-head-bar">
-          <div>
-            <div class="hero-badge">${escapeHtml(t('categorySectionBadge'))}</div>
+          <div style="min-width: 0; max-width: 100%;">
+            <div class="hero-badge">${renderBilingualHtml(t('categorySectionBadge'))}</div>
             <h2 class="section-head-title">${escapeHtml(t('categorySectionTitle'))}</h2>
             <p class="section-head-desc">${escapeHtml(t('categorySectionDesc'))}</p>
           </div>
@@ -793,7 +823,7 @@ function renderDrawer() {
 
   const supportBannerHtml = `
     <div class="arch-step-card" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-top: 8px;">
-      <div style="flex: 1 1 280px;">
+      <div style="flex: 1 1 240px; min-width: 0;">
         <h3>${escapeHtml(t('drawerSupportTitle'))}</h3>
         <p>${escapeHtml(t('drawerSupportDesc'))}</p>
       </div>
