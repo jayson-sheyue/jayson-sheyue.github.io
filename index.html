@@ -1,9 +1,120 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="zh-CN" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>枕月仙人的妙妙屋 · MoonSage's Wonder House</title>
+  <title>枕月仙人的妙妙屋 · MoonSage's Wonder House — 独立开源小工具实验室</title>
+  <meta
+    name="description"
+    content="枕月仙人的妙妙屋（MoonSage's Wonder House）：收录枕月仙人独立开发的免费开源无广告小工具——Leaflight 叶光书房（外语读写）、Fuci 浮词（桌面悬浮查词）、DIYFM 灵感电台（双语播客电台）、PinTool 钉图（屏幕置顶与滚动长截图）、MacSlim 瘦身位（Mac 缓存安全清理）。自动匹配 macOS / Windows / Android 安装包，开箱即用。"
+  />
+  <meta
+    name="keywords"
+    content="枕月仙人的妙妙屋, 枕月仙人, MoonSage, MoonSage's Wonder House, 开源小工具, Leaflight, 叶光书房, Fuci, 浮词, DIYFM, 灵感电台, PinTool, 钉图, MacSlim, Mac清理, 英语阅读器"
+  />
+  <meta name="author" content="枕月仙人 (MoonSage / jayson-sheyue)" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <link rel="canonical" href="https://jayson-sheyue.github.io/" />
+  <link rel="icon" type="image/jpeg" href="./assets/art/moonsage-portrait.jpg" />
+
+  <!-- Open Graph / Social Share -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="枕月仙人的妙妙屋 · MoonSage's Wonder House" />
+  <meta property="og:title" content="枕月仙人的妙妙屋 · MoonSage's Wonder House" />
+  <meta
+    property="og:description"
+    content="想到哪儿做到哪儿的独立开源工具小屋：收录 Leaflight 叶光书房、Fuci 浮词、DIYFM 双语电台、PinTool 钉图、MacSlim 瘦身位。免费开源无广告，开箱即用。"
+  />
+  <meta property="og:url" content="https://jayson-sheyue.github.io/" />
+  <meta property="og:image" content="https://jayson-sheyue.github.io/assets/art/moonsage-portrait.jpg" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="枕月仙人的妙妙屋 · MoonSage's Wonder House" />
+  <meta
+    name="twitter:description"
+    content="独立开源小工具实验室：Leaflight 叶光书房 · Fuci 浮词 · DIYFM 灵感电台 · PinTool 钉图 · MacSlim 瘦身位。"
+  />
+  <meta name="twitter:image" content="https://jayson-sheyue.github.io/assets/art/moonsage-portrait.jpg" />
+
+  <!-- Structured Data (Schema.org JSON-LD) for Google & AI Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://jayson-sheyue.github.io/#website",
+        "url": "https://jayson-sheyue.github.io/",
+        "name": "枕月仙人的妙妙屋",
+        "alternateName": ["MoonSage's Wonder House", "枕月仙人", "MoonSage's Atelier"],
+        "description": "枕月仙人的妙妙屋：收录独立开发的免费开源无广告小工具（Leaflight 叶光书房、Fuci 浮词、DIYFM 灵感电台、PinTool 钉图、MacSlim 瘦身位），自动匹配 macOS、Windows、Android 安装包与网页版。",
+        "inLanguage": ["zh-CN", "en", "ja"],
+        "publisher": {
+          "@type": "Person",
+          "name": "枕月仙人",
+          "alternateName": "MoonSage",
+          "url": "https://jayson-sheyue.github.io/",
+          "sameAs": [
+            "https://github.com/jayson-sheyue"
+          ]
+        }
+      },
+      {
+        "@type": "ItemList",
+        "name": "枕月仙人的妙妙屋开源工具清单",
+        "itemListElement": [
+          {
+            "@type": "SoftwareApplication",
+            "position": 1,
+            "name": "Leaflight · 叶光书房",
+            "operatingSystem": "macOS, Windows, Android, Web",
+            "applicationCategory": "EducationalApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+            "url": "https://github.com/jayson-sheyue/Leaflight"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 2,
+            "name": "Fuci · 浮词",
+            "operatingSystem": "macOS, Windows",
+            "applicationCategory": "ReferenceApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+            "url": "https://github.com/jayson-sheyue/fuci"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 3,
+            "name": "DIYFM · 灵感电台",
+            "operatingSystem": "macOS, Android, Web",
+            "applicationCategory": "EducationalApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+            "url": "https://github.com/jayson-sheyue/DIYFM"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 4,
+            "name": "PinTool · 钉图",
+            "operatingSystem": "macOS",
+            "applicationCategory": "UtilitiesApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+            "url": "https://github.com/jayson-sheyue/PinTool"
+          },
+          {
+            "@type": "SoftwareApplication",
+            "position": 5,
+            "name": "MacSlim · 瘦身位",
+            "operatingSystem": "macOS",
+            "applicationCategory": "UtilitiesApplication",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CNY" },
+            "url": "https://github.com/jayson-sheyue/mac-slim"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="stylesheet" href="./styles/main.css?v=20261111b" />
 </head>
 <body>
@@ -67,9 +178,9 @@
           </div>
         </div>
 
-        <div class="hero-badge" data-i18n="heroBadge">☾ MOONSAGE’S ATELIER · 枕月仙人的小站</div>
-        <h1 class="hero-title" data-i18n="heroTitle">MoonSage’s Little Garret</h1>
-        <p class="hero-subtitle" data-i18n="heroSubtitle">Hand-crafted digital curios made under the crescent moon.</p>
+        <div class="hero-badge" data-i18n="heroBadge">☾ MOONSAGE’S WONDER HOUSE · 枕月仙人的妙妙屋</div>
+        <h1 class="hero-title" data-i18n="heroTitle">枕月仙人的妙妙屋 · MoonSage’s Wonder House</h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">想到哪儿做到哪儿的开源小工具实验室 · Hand-crafted open-source curios.</p>
         <p class="hero-desc" data-i18n="heroDesc">
           No noisy ads, no cloud accounts. Take a ready-made package for macOS, Windows, or Android, open a live web app in your browser, or peek into the open-source notebooks on GitHub.
         </p>
@@ -257,6 +368,20 @@
       </div>
     </div>
   </div>
+
+  <noscript>
+    <section style="max-width: 860px; margin: 32px auto; padding: 24px;">
+      <h2>枕月仙人的妙妙屋 · MoonSage's Wonder House 开源工具目录</h2>
+      <p>独立开发者「枕月仙人（MoonSage）」的免费开源无广告小工具实验室（微信公众号：枕月仙人的妙妙屋）：</p>
+      <ul>
+        <li><a href="https://github.com/jayson-sheyue/Leaflight">01 · Leaflight 叶光书房</a> — 本地优先的沉浸式外语读写空间，支持直接导入 .epub / .txt 电子书与拟真翻页（macOS / Windows / Android / Web）。</li>
+        <li><a href="https://github.com/jayson-sheyue/fuci">02 · Fuci 浮词</a> — 桌面半透明悬浮球与快捷键即时查词工具（macOS / Windows）。</li>
+        <li><a href="https://github.com/jayson-sheyue/DIYFM">03 · DIYFM 灵感电台</a> — 双语故事与日常来信电台，支持直接导入 .zip 频道包（Web / macOS / Android）。</li>
+        <li><a href="https://github.com/jayson-sheyue/PinTool">04 · PinTool 钉图</a> — 屏幕区域置顶参考与长页面滚动拼接截图工具（macOS）。</li>
+        <li><a href="https://github.com/jayson-sheyue/mac-slim">05 · MacSlim 瘦身位</a> — 可解释、默认移入废纸篓可撤销的 Mac 缓存与旧内核清理工具（macOS Universal）。</li>
+      </ul>
+    </section>
+  </noscript>
 
   <script type="module" src="./scripts/app.js?v=20261111b"></script>
 </body>

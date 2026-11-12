@@ -1056,7 +1056,7 @@ export const INITIAL_MODULES = [
     accent: 'ochre',
     stamp: 'No. 05',
     icon: '🧹',
-    version: 'v1.1.1-beta.4',
+    version: 'v1.1.1-beta.5',
     platforms: ['macos'],
     githubRepo: 'jayson-sheyue/mac-slim',
     githubUrl: 'https://github.com/jayson-sheyue/mac-slim',
@@ -1106,8 +1106,8 @@ export const INITIAL_MODULES = [
         {
           label: 'macOS Universal Pre-release (.dmg)',
           shortLabel: 'macOS .dmg',
-          arch: 'Universal (arm64 + Intel) · v1.1.1-beta.4',
-          url: 'https://github.com/jayson-sheyue/mac-slim/releases/download/v1.1.1-beta.4/MacSlim-1.1.1-beta.4-Universal.dmg',
+          arch: 'Universal (arm64 + Intel) · v1.1.1-beta.5',
+          url: 'https://github.com/jayson-sheyue/mac-slim/releases/download/v1.1.1-beta.5/MacSlim-1.1.1-beta.5-Universal.dmg',
         },
         {
           label: 'macOS Universal Stable (.dmg)',
