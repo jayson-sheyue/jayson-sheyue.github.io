@@ -10,7 +10,7 @@ export const UI_STRINGS = {
     themeLight: 'Parchment',
     themeDark: 'Candlelight',
     heroBadge: '☾ MOONSAGE’S WONDER HOUSE · 枕月仙人的妙妙屋',
-    heroTitle: 'MoonSage’s Wonder House',
+    heroTitle: 'MoonSage’s Wonder House · 枕月仙人的妙妙屋',
     heroSubtitle: 'Tinkering under the crescent moon — building magical little tools wherever inspiration strikes.',
     heroDesc:
       'Language companions, productivity boosters, and playful experiments — crafted on a whim and shared openly. Grab a ready-to-run package for macOS, Windows, or Android, play right in your browser, or peek into the GitHub scrolls.',
@@ -222,7 +222,7 @@ export const UI_STRINGS = {
     themeLight: '暖阳羊皮纸',
     themeDark: '星夜烛光',
     heroBadge: '☾ MOONSAGE’S WONDER HOUSE · 枕月仙人的妙妙屋',
-    heroTitle: '枕月仙人的妙妙屋',
+    heroTitle: '枕月仙人的妙妙屋 · MoonSage’s Wonder House',
     heroSubtitle: '枕着一弯新月敲敲打打，想到哪儿做到哪儿的开源「妙妙工具」百宝箱。',
     heroDesc:
       '这里存放着我灵光一现做出的各种神奇小工具——可能是外语读写伴侣、办公摸鱼提效助手，也可能是纯整活儿的快乐小玩具。进屋不用客气，现成安装包可直接领走，网页版推门即玩，手稿在 GitHub 敞开。',

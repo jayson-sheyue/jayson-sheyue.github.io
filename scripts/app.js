@@ -1,5 +1,5 @@
-import { SUPPORTED_LOCALES, UI_STRINGS } from '../catalog/i18n.js?v=20261111b';
-import { STUDIO_PROFILE, CATALOG_CATEGORIES, INITIAL_MODULES } from '../catalog/modules.js?v=20261111b';
+import { SUPPORTED_LOCALES, UI_STRINGS } from '../catalog/i18n.js?v=20261112a';
+import { STUDIO_PROFILE, CATALOG_CATEGORIES, INITIAL_MODULES } from '../catalog/modules.js?v=20261112a';
 
 const STORAGE_KEYS = {
   locale: 'moonsage_atelier_locale',
@@ -15,10 +15,23 @@ function detectVisitorOs() {
 
 function loadSavedLocale() {
   try {
+    const urlLang = new URLSearchParams(window.location.search).get('lang');
+    if (urlLang && SUPPORTED_LOCALES.includes(urlLang)) return urlLang;
+  } catch (_) {}
+  try {
     const saved = localStorage.getItem(STORAGE_KEYS.locale);
     if (saved && SUPPORTED_LOCALES.includes(saved)) return saved;
   } catch (_) {}
-  return 'en';
+  const langs = Array.isArray(navigator.languages) && navigator.languages.length
+    ? navigator.languages
+    : [navigator.language || ''];
+  for (const raw of langs) {
+    const l = String(raw || '').toLowerCase();
+    if (l.startsWith('zh')) return 'zh';
+    if (l.startsWith('ja')) return 'ja';
+    if (l.startsWith('en')) return 'en';
+  }
+  return 'zh';
 }
 
 function loadSavedTheme() {
